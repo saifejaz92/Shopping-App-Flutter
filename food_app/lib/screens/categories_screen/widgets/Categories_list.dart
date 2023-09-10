@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/screens/categories_screen/widgets/Shopping%20List.dart';
-
+import 'package:food_app/screens/categories_screen/widgets/detailed_categories_screen.dart';
 import '../../../colors/colors.dart';
+import 'shopping_list.dart';
 
 class CategoriesList extends StatefulWidget {
   const CategoriesList({super.key});
@@ -19,13 +19,20 @@ class _CategoriesListState extends State<CategoriesList> {
           shrinkWrap: true,
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
-              childAspectRatio: 2.3 / 3,
+              childAspectRatio: 2.1 / 3,
               crossAxisSpacing: 20,
               mainAxisSpacing: 20),
-          itemCount: ShoppingList.length,
+          itemCount: categoriesList.length,
           itemBuilder: (BuildContext ctx, index) {
             return InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailedCategoriesScreen(),
+                  ),
+                );
+              },
               child: Card(
                 color: const Color(0xffE0E2EE),
                 child: Column(
@@ -36,8 +43,8 @@ class _CategoriesListState extends State<CategoriesList> {
                       child: Center(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
-                          child: Image.asset(
-                            ShoppingList[index]["image"].toString(),
+                          child: Image.network(
+                            categoriesList[index]["image"].toString(),
                             width: 130,
                             height: 100,
                           ),
@@ -56,18 +63,19 @@ class _CategoriesListState extends State<CategoriesList> {
                       height: 66,
                       child: ListTile(
                         title: Text(
-                          ShoppingList[index]["title"].toString(),
+                          categoriesList[index]["title"].toString(),
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: txtColor,
-                            fontSize: 15,
+                            fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         subtitle: Text(
-                          ShoppingList[index]["description"].toString(),
+                          categoriesList[index]["description"].toString(),
                           textAlign: TextAlign.center,
                           style: const TextStyle(
+                            fontSize: 10,
                             color: Colors.blueGrey,
                           ),
                         ),

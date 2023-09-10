@@ -15,23 +15,31 @@ class GetStartedScreen extends StatelessWidget {
           padding: const EdgeInsets.only(top: 70, right: 20, left: 20),
           child: Column(
             children: [
-              Center(
+              Container(
+                width: MediaQuery.of(context).size.width * 0.90,
                 child: Column(
                   children: [
                     Container(
                       height: 170,
-                      child: const Text(
-                        "Your holiday\nshopping\ndelivered to Screen\none",
-                        style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          color: titleColor,
-                        ),
+                      width: MediaQuery.of(context).size.width * 0.80,
+                      child: const Row(
+                        children: [
+                          Text(
+                            "Your holiday\nshopping\ndelivered to Screen\none",
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              color: titleColor,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Container(
-                      height: 100,
-                      width: 285,
+                      margin: EdgeInsets.only(top: 25, bottom: 20),
+                      alignment: Alignment.topLeft,
+                      height: 80,
+                      width: MediaQuery.of(context).size.width * 0.80,
                       child: const Text(
                         "There's something for everyone\nto enjoy with Sweet Shop\nFavourites Screen 1",
                         style: TextStyle(
@@ -44,7 +52,7 @@ class GetStartedScreen extends StatelessWidget {
                     const Sliders(),
                     Container(
                       height: 70,
-                      width: 275,
+                      width: MediaQuery.of(context).size.width * 0.80,
                       margin: const EdgeInsets.only(top: 90),
                       child: ElevatedButton(
                         style: ButtonStyle(
@@ -77,7 +85,7 @@ class GetStartedScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -17,47 +17,48 @@ class CategoriesScreen extends StatelessWidget {
             child: Column(
               children: [
                 ListTile(
-                    contentPadding: const EdgeInsets.only(top: 40, left: 10),
-                    title: const Text(
-                      "Hey, Halal",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: titleColor,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  contentPadding: const EdgeInsets.only(top: 40, left: 10),
+                  title: const Text(
+                    "Hey, Halal",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: titleColor,
+                      fontWeight: FontWeight.bold,
                     ),
-                    trailing: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(right: 25),
-                            child: Icon(
-                              Icons.search,
+                  ),
+                  trailing: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(right: 25),
+                          child: Icon(
+                            Icons.search,
+                            color: titleColor,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: badges.Badge(
+                            position:
+                                badges.BadgePosition.custom(bottom: 5, end: -5),
+                            badgeStyle: const badges.BadgeStyle(
+                              badgeColor: btnColor,
+                            ),
+                            badgeContent: const Text(
+                              "3",
+                              style: TextStyle(color: titleColor),
+                            ),
+                            child: const Icon(
+                              Icons.shopping_bag_outlined,
                               color: titleColor,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: badges.Badge(
-                              position: badges.BadgePosition.custom(
-                                  bottom: 5, end: -5),
-                              badgeStyle: const badges.BadgeStyle(
-                                badgeColor: btnColor,
-                              ),
-                              badgeContent: const Text(
-                                "3",
-                                style: TextStyle(color: titleColor),
-                              ),
-                              child: const Icon(
-                                Icons.shopping_bag_outlined,
-                                color: titleColor,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 Container(
                   alignment: Alignment.topLeft,
                   padding: const EdgeInsets.only(top: 10),

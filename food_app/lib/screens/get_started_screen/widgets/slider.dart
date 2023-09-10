@@ -28,7 +28,7 @@ class _SlidersState extends State<Sliders> {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.only(left: 45),
+          margin: const EdgeInsets.only(left: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: imageList.asMap().entries.map((entry) {

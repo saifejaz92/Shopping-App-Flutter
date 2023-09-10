@@ -212,54 +212,73 @@ class HomePage extends StatelessWidget {
           ),
           const BannerCard(),
           Container(
-            height: MediaQuery.of(context).size.height * 0.10,
-            width: double.infinity,
-            padding: const EdgeInsets.only(left: 15, top: 25),
-            child: const Text(
-              "Recommended",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: txtColor,
-              ),
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(left: 15),
-            height: MediaQuery.of(context).size.height * 0.30,
+            height: MediaQuery.of(context).size.height * 0.40,
             width: double.infinity,
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        productCards("assets/images/slider1.jpg", "Lemon Juice",
-                            "Organic", "Unit S 12"),
-                        productCards("assets/images/slider2.jpg", "Green Tea",
-                            "Organic", "Unit S 06"),
-                        productCards("assets/images/slider1.jpg", "Fresh Juice",
-                            "Organic", "Unit S 15"),
-                        productCards("assets/images/slider2.jpg", "Cold Coffe",
-                            "Organic", "Unit S 20"),
-                      ],
+                  Container(
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.only(left: 15, top: 25),
+                    child: const Text(
+                      "Recommended",
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: txtColor,
+                      ),
                     ),
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        productCards("assets/images/slider1.jpg", "Mango Shake",
-                            "Organic", "Unit S 16"),
-                        productCards("assets/images/slider2.jpg", "Tea",
-                            "Organic", "Unit S 09"),
-                        productCards("assets/images/slider1.jpg", "Fresh Juice",
-                            "Organic", "Unit S 15"),
-                        productCards("assets/images/slider2.jpg", "Cold Coffe",
-                            "Organic", "Unit S 20"),
-                      ],
+                  Container(
+                    margin: const EdgeInsets.only(left: 15),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        children: [
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                productCards("assets/images/slider1.jpg",
+                                    "Lemon Juice", "Organic", "Unit S 12"),
+                                productCards("assets/images/slider2.jpg",
+                                    "Green Tea", "Organic", "Unit S 06"),
+                                productCards("assets/images/slider1.jpg",
+                                    "Fresh Juice", "Organic", "Unit S 15"),
+                                productCards("assets/images/slider2.jpg",
+                                    "Cold Coffe", "Organic", "Unit S 20"),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            padding: const EdgeInsets.only(left: 15, top: 25),
+                            child: const Text(
+                              "Weekly Deals",
+                              style: TextStyle(
+                                fontSize: 30,
+                                color: txtColor,
+                              ),
+                            ),
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                productCards("assets/images/slider1.jpg",
+                                    "Mango Shake", "Organic", "Unit S 16"),
+                                productCards("assets/images/slider2.jpg", "Tea",
+                                    "Organic", "Unit S 09"),
+                                productCards("assets/images/slider1.jpg",
+                                    "Fresh Juice", "Organic", "Unit S 15"),
+                                productCards("assets/images/slider2.jpg",
+                                    "Cold Coffe", "Organic", "Unit S 20"),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
