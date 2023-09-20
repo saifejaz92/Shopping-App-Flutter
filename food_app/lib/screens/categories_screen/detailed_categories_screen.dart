@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:food_app/screens/categories_screen/product_details.dart';
+import 'package:food_app/screens/categories_screen/widgets/shopping_list.dart';
 import '../../../colors/colors.dart';
-import 'shopping_list.dart';
 
 class DetailedCategoriesScreen extends StatefulWidget {
   const DetailedCategoriesScreen({super.key});
@@ -37,7 +38,7 @@ class _DetailedCategoriesScreenState extends State<DetailedCategoriesScreen> {
         title: ListTile(
           title: const Text(
             "Category",
-            style: const TextStyle(fontSize: 22),
+            style: TextStyle(fontSize: 22),
           ),
           trailing: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -75,8 +76,8 @@ class _DetailedCategoriesScreenState extends State<DetailedCategoriesScreen> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(8),
-            margin: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -84,7 +85,8 @@ class _DetailedCategoriesScreenState extends State<DetailedCategoriesScreen> {
                 children: categoryy
                     .map(
                       (category) => FilterChip(
-                          side: BorderSide(width: 1, style: BorderStyle.solid),
+                          side: const BorderSide(
+                              width: 1, style: BorderStyle.solid),
                           backgroundColor: Colors.white,
                           selectedColor: btnColor,
                           selected: selectedCategory.contains(category),
@@ -116,14 +118,16 @@ class _DetailedCategoriesScreenState extends State<DetailedCategoriesScreen> {
                   itemCount: filteredProduct.length,
                   itemBuilder: (BuildContext ctx, index) {
                     final products = filteredProduct[index];
-                    return InkWell(
+                    return GestureDetector(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => DetailedCategoriesScreen(),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ProductDetailsPage(
+                              productName: products,
+                            ),
+                          ),
+                        );
                       },
                       child: Card(
                         color: const Color(0xffE0E2EE),

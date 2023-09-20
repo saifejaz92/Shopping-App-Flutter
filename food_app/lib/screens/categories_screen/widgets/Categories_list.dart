@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/screens/categories_screen/widgets/detailed_categories_screen.dart';
 import '../../../colors/colors.dart';
+import '../detailed_categories_screen.dart';
 import 'shopping_list.dart';
 
 class CategoriesList extends StatefulWidget {
@@ -29,7 +29,7 @@ class _CategoriesListState extends State<CategoriesList> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailedCategoriesScreen(),
+                    builder: (context) => const DetailedCategoriesScreen(),
                   ),
                 );
               },
