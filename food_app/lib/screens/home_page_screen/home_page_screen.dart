@@ -3,9 +3,14 @@ import 'package:food_app/colors/colors.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:food_app/screens/home_page_screen/widgets/banner_card.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   productCards(
       String image, String productTitle, String productSub, String price) {
     return Card(
@@ -77,7 +82,17 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-  } //function of product cards
+  }
+
+  //function of product cards
+  String dropdownvalue = '1 Hour';
+
+  // List of items in our dropdown menu
+  var items = [
+    '1 Hour',
+    '2 Hour',
+    '3 Hour',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -182,26 +197,44 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(left: 100, top: 30),
+                        margin: const EdgeInsets.only(left: 80, top: 30),
                         child: RichText(
-                          text: const TextSpan(children: [
-                            TextSpan(
+                          text: TextSpan(children: [
+                            const TextSpan(
                               text: "WITHIN\n",
                               style:
                                   TextStyle(fontSize: 15, color: subtitleColor),
                             ),
                             TextSpan(
-                              text: "1 Hour",
-                              style: TextStyle(fontSize: 15, color: titleColor),
+                              text: dropdownvalue,
+                              style: const TextStyle(
+                                  fontSize: 15, color: titleColor),
                             ),
                           ]),
                         ),
                       ),
                       Container(
-                        margin: const EdgeInsets.only(top: 50, left: 10),
-                        child: const Icon(
-                          Icons.arrow_drop_down,
-                          color: subtitleColor,
+                        margin: const EdgeInsets.only(
+                          top: 50,
+                        ),
+                        child: DropdownButton(
+                          // Down Arrow Icon
+                          icon: const Icon(Icons.keyboard_arrow_down),
+
+                          // Array list of items
+                          items: items.map((String items) {
+                            return DropdownMenuItem(
+                              value: items,
+                              child: Text(items),
+                            );
+                          }).toList(),
+                          // After selecting the desired option,it will
+                          // change button value to selected value
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              dropdownvalue = newValue!;
+                            });
+                          },
                         ),
                       ),
                     ],
@@ -290,3 +323,8 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+// IconButton(
+//                           onPressed: () {},
+//                           icon: const Icon(Icons.arrow_drop_down),
+//                           color: subtitleColor,
+//                         ),
