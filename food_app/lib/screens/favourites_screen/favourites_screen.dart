@@ -26,7 +26,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Cart",
+          "Favourites",
         ),
       ),
       body: Padding(

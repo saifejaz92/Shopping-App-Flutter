@@ -59,7 +59,7 @@ class _DetailedCategoriesScreenState extends State<DetailedCategoriesScreen> {
                       badgeColor: btnColor,
                     ),
                     badgeContent: const Text(
-                      "3",
+                      "0",
                       style: TextStyle(color: titleColor),
                     ),
                     child: const Icon(
